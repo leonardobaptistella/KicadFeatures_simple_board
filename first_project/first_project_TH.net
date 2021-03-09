@@ -1,0 +1,67 @@
+(export (version D)
+  (design
+    (source "C:\\Users\\Leonardo Baptistella\\Desktop\\kicad\\first_project\\first_project.sch")
+    (date "02/03/2021 21:37:56")
+    (tool "Eeschema (5.1.6)-1")
+    (sheet (number 1) (name /) (tstamps /)
+      (title_block
+        (title "First Project")
+        (company "Zenith Aerospace")
+        (rev)
+        (date 2021-03-02)
+        (source first_project.sch)
+        (comment (number 1) (value "Testing the kicad features"))
+        (comment (number 2) (value ""))
+        (comment (number 3) (value ""))
+        (comment (number 4) (value "")))))
+  (components
+    (comp (ref D1)
+      (value LED)
+      (footprint LED_THT:LED_D8.0mm-3)
+      (datasheet ~)
+      (libsource (lib Device) (part LED) (description "Light emitting diode"))
+      (sheetpath (names /) (tstamps /))
+      (tstamp 603E7543))
+    (comp (ref R1)
+      (value R)
+      (footprint Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal)
+      (datasheet ~)
+      (libsource (lib Device) (part R) (description Resistor))
+      (sheetpath (names /) (tstamps /))
+      (tstamp 603E86ED)))
+  (libparts
+    (libpart (lib Device) (part LED)
+      (description "Light emitting diode")
+      (docs ~)
+      (footprints
+        (fp LED*)
+        (fp LED_SMD:*)
+        (fp LED_THT:*))
+      (fields
+        (field (name Reference) D)
+        (field (name Value) LED))
+      (pins
+        (pin (num 1) (name K) (type passive))
+        (pin (num 2) (name A) (type passive))))
+    (libpart (lib Device) (part R)
+      (description Resistor)
+      (docs ~)
+      (footprints
+        (fp R_*))
+      (fields
+        (field (name Reference) R)
+        (field (name Value) R))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive)))))
+  (libraries
+    (library (logical Device)
+      (uri G:\KiCad\share\kicad\library/Device.lib)))
+  (nets
+    (net (code 1) (name "Net-(D1-Pad2)")
+      (node (ref D1) (pin 2))
+      (node (ref R1) (pin 1)))
+    (net (code 2) (name +5V)
+      (node (ref R1) (pin 2)))
+    (net (code 3) (name GND)
+      (node (ref D1) (pin 1)))))
